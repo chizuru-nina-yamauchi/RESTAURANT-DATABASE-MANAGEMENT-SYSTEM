@@ -72,6 +72,7 @@ public class OrderDaoImpl implements OrderDao{
 
     @Override
     public Order insertOrder(Order order) {
+
         try(
                 Connection conn = ConnectionFactory.getConnection();
                 PreparedStatement ps = conn.prepareStatement(SqlQuery.INSERT_ORDER.getQuery())
@@ -81,9 +82,10 @@ public class OrderDaoImpl implements OrderDao{
             // Convert the LocalDateTime to a java.sql.Timestamp to be able to set it as a parameter
             ps.setTimestamp(3, java.sql.Timestamp.valueOf(order.getOrderTime()));
             int affectedRows = ps.executeUpdate();
-            if (affectedRows > 0){
-                return order;
-            }
+            if (affectedRows > 0) {
+                    return order;
+                }
+
         }catch (SQLException e){
             e.printStackTrace();
         }
@@ -149,6 +151,7 @@ public class OrderDaoImpl implements OrderDao{
         return false;
     }
 
+
     /*
     *  Extract the data from the result set
     *  Create a new order object
@@ -159,7 +162,7 @@ public class OrderDaoImpl implements OrderDao{
     private Order extractOrderFromResultSet(ResultSet rs)  throws SQLException {
         Order order = new Order();
         order.setOrderId(rs.getInt("order_id"));
-        order.setMenuItem(new MenuItemDaoImpl().getMenuItemById(rs.getInt("menu_id")));
+        order.setMenuItem(new MenuItemDaoImpl().getMenuItemById(rs.getInt("item_id")));
         order.setQuantity(rs.getInt("quantity"));
         order.setOrderTime(rs.getTimestamp("order_time").toLocalDateTime());
         return order;

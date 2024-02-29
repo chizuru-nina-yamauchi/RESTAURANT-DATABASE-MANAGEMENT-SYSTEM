@@ -40,9 +40,24 @@ DAO pattern, Java, PostgreSQL
 
 ![pic7](./resources/pic7.png)
 
-- The database is updated on SQL shell
+- The database is updated on SQL shell menu items
 
 ![pic8](./resources/pic8.png)
+
+- The database is updated on SQL shell orders (later on)
+
+![pic9](./resources/pic9.png)
+
+-Test method for MenuItemDaoImpl class
+
+![pic10](./resources/pic10.png)
+
+![pic12](./resources/pic12.png)
+
+
+-Test method for OrderDaoImpl class
+
+![pic13](./resources/pic13.png)
 
 
 Finish

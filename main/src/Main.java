@@ -19,7 +19,7 @@ public class Main {
         ConnectionFactory.printConnectionMessage();
 
         System.out.println();
-
+        /*
         System.out.println("Insert a new menu item");
         // Insert a new menu item
         MenuItem cheeseBurger = new MenuItem("Cheese Burger", new BigDecimal("10.0"));
@@ -100,7 +100,114 @@ public class Main {
         } else {
             System.out.println("Menu item not deleted");
         }
+        */
 
+        /*
+        boolean deleted = menuItemDao.deleteMenuItem(1);
+        if (deleted) {
+            System.out.println("Menu item deleted");
+        } else {
+            System.out.println("Menu item not deleted");
+        }
+
+        boolean deleted2 = menuItemDao.deleteMenuItem(3);
+        if (deleted) {
+            System.out.println("Menu item deleted");
+        } else {
+            System.out.println("Menu item not deleted");
+        }
+
+        boolean deleted3 = menuItemDao.deleteMenuItem(4);
+        if (deleted) {
+            System.out.println("Menu item deleted");
+        } else {
+            System.out.println("Menu item not deleted");
+        }
+
+        boolean deleted4 = menuItemDao.deleteMenuItem(5);
+        if (deleted) {
+            System.out.println("Menu item deleted");
+        } else {
+            System.out.println("Menu item not deleted");
+        }
+
+        */
+
+
+        MenuItem beaconCheeseBurger = new MenuItem("Beacon Cheese Burger", new BigDecimal("15.0"));
+        beaconCheeseBurger = menuItemDao.insertMenuItem(beaconCheeseBurger);
+        if (beaconCheeseBurger != null){
+            System.out.println("Inserted menu item: " + beaconCheeseBurger);
+        }
+
+        MenuItem seafoodPasta = new MenuItem("Seafood Pasta", new BigDecimal("20.0"));
+        seafoodPasta = menuItemDao.insertMenuItem(seafoodPasta);
+        if (seafoodPasta != null){
+            System.out.println("Inserted menu item: " + seafoodPasta);
+        }
+
+        MenuItem chickenCaesarSalad = new MenuItem("Chicken Caesar Salad", new BigDecimal("18.0"));
+        chickenCaesarSalad = menuItemDao.insertMenuItem(chickenCaesarSalad);
+        if (chickenCaesarSalad != null){
+            System.out.println("Inserted menu item: " + chickenCaesarSalad);
+        }
+
+
+        // Insert a new order
+        System.out.println("Insert a new order");
+        Order order1 = new Order();
+
+        order1.setMenuItem(beaconCheeseBurger);
+        order1.setQuantity(2);
+        order1.setOrderTime(java.time.LocalDateTime.now());
+
+        order1 = orderDao.insertOrder(order1);
+
+        if (order1 != null) {
+            System.out.println("Order1: " + order1);
+        }
+
+        Order order2 = new Order(seafoodPasta, 1, java.time.LocalDateTime.now());
+
+        /*
+        order2.setMenuItem(seafoodPasta);
+        order2.setQuantity(1);
+        order2.setOrderTime(java.time.LocalDateTime.now());
+
+         */
+
+        order2 = orderDao.insertOrder(order2);
+
+        if (order2 != null) {
+            System.out.println("Order2: " + order2);
+        }
+
+        Order order3 = new Order(chickenCaesarSalad, 3, java.time.LocalDateTime.now());
+        /*
+        order3.setMenuItem(chickenCaesarSalad);
+        order3.setQuantity(3);
+        order3.setOrderTime(java.time.LocalDateTime.now());
+        */
+        order3 = orderDao.insertOrder(order3);
+
+        if (order3 != null) {
+            System.out.println("Order3: " + order3);
+        }
+
+        // Get all orders
+        System.out.println("Get all orders");
+
+        Set<Order> orders = orderDao.getAllOrders();
+
+        if (orders != null) {
+            for (Order eachOrder : orders) {
+                System.out.println(eachOrder);
+            }
+        } else {
+            System.out.println("No orders found");
+        }
+
+        System.out.println();
 
 
 

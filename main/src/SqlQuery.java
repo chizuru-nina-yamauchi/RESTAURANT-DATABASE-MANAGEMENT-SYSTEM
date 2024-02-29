@@ -12,11 +12,14 @@ public enum SqlQuery {
     INSERT_MENU_ITEM("INSERT INTO menu_items (name, price) VALUES (?, ?)"),
     UPDATE_MENU_ITEM("UPDATE menu_items SET name = ?, price = ? WHERE item_id = ?"),
     DELETE_MENU_ITEM("DELETE FROM menu_items WHERE item_id = ?"),
+
+    DELETE_ALL_MENU_ITEMS("DELETE * FROM menu_items"),
     GET_ORDER_BY_ORDER_ID("SELECT * FROM orders WHERE order_id = ?"),
     GET_ALL_ORDERS("SELECT * FROM orders"),
     INSERT_ORDER("INSERT INTO orders (item_id, quantity, order_time) VALUES (?, ?, ?)"),
     UPDATE_ORDER("UPDATE orders SET item_id = ?, quantity = ?, order_time = ? WHERE order_id = ?"),
-    DELETE_ORDER("DELETE FROM orders WHERE order_id = ?");
+    DELETE_ORDER("DELETE FROM orders WHERE order_id = ?"),
+    DELETE_ALL_ORDERS("DELETE * FROM orders");
 
     // Attribute
     private String query;
