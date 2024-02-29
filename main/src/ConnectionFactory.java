@@ -10,8 +10,8 @@ import java.sql.SQLException;
 */
 public class ConnectionFactory {
     public static final String URL = "jdbc:postgresql://localhost:5432/restaurant_db";
-    public static final String USER = "postgres";
-    public static final String PASSWORD = "123456";
+    private static final String USER = "postgres";
+    private static final String PASSWORD = "123456";
     /*
     *  Get a connection to database
     * @return Connection object
